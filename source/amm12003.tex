@@ -1,0 +1,155 @@
+\documentclass{letter}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\signature{Ricardo Bittencourt}
+\begin{document}
+
+\newtheorem{lemma}{Lemma}
+
+\begin{letter}{}
+
+
+\textbf{12003.} Given an odd positive $n$, compute:
+    
+$$\sum_{k=1}^{n}\frac{\gcd(k, n)}{\cos^2\frac{k \pi}{n}}$$
+
+  \textbf{Solution.} We start with a helping lemma:
+
+  \begin{lemma}
+    If $n$ is odd, then $\sum_{k=1}^{n}\frac{1}{\cos^2\frac{k \pi}{n}}=n^2$.
+  \end{lemma}
+  \begin{proof}
+    Let's rewrite the sum to use tangents:
+    \begin{align*}
+      \sum_{k=1}^{n}\frac{1}{\cos^2\frac{k \pi}{n}}
+      &=\sum_{k=1}^n \sec^2\frac{k \pi}{n} \\
+      &=\sum_{k=1}^n 1+\tan^2\frac{k \pi}{n} \\
+      &= n+\sum_{k=1}^n \tan^2\frac{k \pi}{n}
+    \end{align*}
+
+  Consider now the following application of Euler's identity, which is valid for all integer {k}:
+
+    $$\left(\cos\frac{k\pi}{n}+i \sin\frac{k\pi}{n}\right)^n
+    =\left(\exp\left(\frac{ik\pi}{n}\right)\right)^n=
+    \exp\left(ik\pi\right)=(-1)^k$$
+
+  We can open this expression using the Binomial theorem. Let's also replace $n=2m+1$ since we have the requirement of $n$ odd.
+
+    \begin{align*}
+      \sum_{p=0}^{2m+1}{2m+1\choose p}
+      \left(i\sin\frac{k\pi}{2m+1}\right)^{p}
+      \left(\cos\frac{k\pi}{2m+1}\right)^{2m+1-p} &= (-1)^k \\
+    \sum_{p=0}^{2m+1}{2m+1\choose p}
+      \left(i\tan\frac{k\pi}{2m+1}\right)^{p}
+      \left(\cos\frac{k\pi}{2m+1}\right)^{2m+1} &= (-1)^k
+    \end{align*}
+
+  Now we'll keep only the imaginary part on both sides. The left side is purely imaginary when $p$ is odd, so we'll rewrite the index as $p=2q+1$, and extract the constants:
+
+  \begin{align*}
+    \sum_{q=0}^{m}{2m+1\choose 2q+1}
+      \left(i\tan\frac{k\pi}{2m+1}\right)^{2q+1}
+      \left(\cos\frac{k\pi}{2m+1}\right)^{2m+1} &= 0 \\
+    i\tan\frac{k\pi}{2m+1}
+    \left(\cos\frac{k\pi}{2m+1}\right)^{2m+1}
+    \sum_{q=0}^{m}{2m+1\choose 2q+1}
+      \left(i\tan\frac{k\pi}{2m+1}\right)^{2q}
+       &= 0 \\
+  \end{align*}
+
+    We can again divide everything by the constants, provided the tangent is never zero (the cosine will never be zero because we're dividing $\pi$ by an odd number). The previous expression is valid for all $k$, the next expression is only valid when $k$ is not a multiple of $2m+1$:
+
+  \begin{align*}
+    \sum_{q=0}^{m}{2m+1\choose 2q+1}
+      \left(i\tan\frac{k\pi}{2m+1}\right)^{2q} &=0 \\
+    \sum_{q=0}^{m}{2m+1\choose 2q+1}
+      \left(-\tan^2\frac{k\pi}{2m+1}\right)^{q} &=0 
+  \end{align*}
+       
+  At this point, notice that $-\tan^2\frac{k\pi}{2m+1}$ is a root of the following polynomial equation, for every $k$ that is not a multiple of $2m+1$:
+    
+    $$P(x)=\sum_{q=0}^{m}{2m+1\choose 2q+1}x^q=0$$
+
+  We can use Vieta's formula to get the sum of the roots of this equation. The degree is $m$ so we'll have $m$ unique roots. These roots correspond exactly to $-\tan^2\frac{k\pi}{2m+1}$ for $k$ from $1$ to $m$. Remember we have $k=0$ excluded due to the division early on; and also notice that roots for $k$ from $m+1$ to $2m$ are repeated, since $\tan^2\frac{(2m+1-k)\pi}{2m+1}=\tan^2\left(\pi-\frac{k\pi}{2m+1}\right)=\tan^2\frac{k\pi}{2m+1}$.
+
+  \begin{align*}
+    \sum_{k=1}^{m}-\tan^2\frac{k\pi}{2m+1}&=-\frac{[x^{m-1}]P(x)}{[x^m]P(x)}\\
+    \sum_{k=1}^{m}\tan^2\frac{k\pi}{2m+1}
+      &= \frac{{2m+1\choose 2(m-1)+1}}{{2m+1\choose 2m+1}} \\
+    \sum_{k=1}^{m}\tan^2\frac{k\pi}{2m+1}
+      &= (2m+1)m
+  \end{align*}
+
+  Since the tangents are repeated with $k$ from $m+1$ to $2m$, we have:
+
+  \begin{align*}
+    \sum_{k=1}^{2m+1}\tan^2\frac{k\pi}{2m+1}
+      &=\sum_{k=1}^{m}\tan^2\frac{k\pi}{2m+1}
+       +\sum_{k=m+1}^{2m}\tan^2\frac{k\pi}{2m+1}
+       +\left(\tan^2\frac{(2m+1)\pi}{2m+1}\right)\\
+      &=(2m+1)m + (2m+1)m + 0 \\
+      &=2m(2m+1) \\
+      &=n(n-1)
+  \end{align*}
+
+  And finally, returning to our original claim:
+
+  $$\sum_{k=1}^{n}\frac{1}{\cos^2\frac{k \pi}{n}}
+    = n + \sum_{k=1}^{n}\tan^2\frac{k\pi}{n} = n + n(n-1) = n^2$$
+  \end{proof}
+
+ We will now make use of the following well-known identity relating the gcd to Euler's totient function:
+
+ $$\gcd(a, b)=\sum_{d|a \text{ and } d|b}\varphi(d)$$
+
+ Substituting in our original summation and making use of Iverson's notation:
+
+ \begin{align*}
+   \sum_{k=1}^{n}\frac{\gcd(k, n)}{\cos^2\frac{k \pi}{n}}
+     &= 
+       \sum_{k=1}^{n}\frac{1}{\cos^2\frac{k \pi}{n}}
+       \sum_{d|k \text{ and } d|n}\varphi(d) \\
+     &= 
+       \sum_{k=1}^{n}\frac{1}{\cos^2\frac{k \pi}{n}}
+       \sum_{d\ge 1}\varphi(d)\;[d|k]\;[d|n] \\
+     &= 
+       \sum_{d\ge 1}\varphi(d)\;[d|n]
+       \sum_{1\le k\le n}\frac{[d|k]}{\cos^2\frac{k \pi}{n}} \\
+     &= 
+       \sum_{d|n}\varphi(d)
+       \sum_{1\le q\le n/d}\frac{1}{\cos^2\frac{q \pi}{n/d}}\\
+     &= 
+       \sum_{d|n}\varphi(d)\left(\frac{n}{d}\right)^2
+ \end{align*}
+
+  I am unsure if this last expression has a closed form. We can notice, however, that it corresponds to the Dirichlet convolution of $\varphi(n)$ and $n^2$, and therefore the Dirichlet generating function of our expression is given by the product of each Dirichlet g.f.:
+
+  \begin{align*}
+      \sum_{n\ge 1} \sum_{d|n}\varphi(d)\left(\frac{n}{d}\right)^2 n^{-s}
+      &=
+      \left(\sum_{n\ge 1}\varphi(n)\;n^{-s}\right)
+      \left(\sum_{n\ge 1}n^2\; n^{-s}\right)\\
+      &=\frac{\zeta(s-1)\zeta(s-2)}{\zeta(s)}
+  \end{align*}
+
+  Also, since both $\varphi(n)$ and $n^2$ are multiplicative, the solution we found before also is multiplicative. Let's call it $g(n)$, then $g(ab)=g(a)g(b)$ and it can be completely defined by its value at powers of primes:
+
+  \begin{align*}
+  g(n) &= 
+       \sum_{d|n}\varphi(d)\left(\frac{n}{d}\right)^2 \\
+  g(p^k) &= 
+     \sum_{p^i|p^k}\varphi(p^i)\left(\frac{p^k}{p^i}\right)^2 \\
+     &= p^{2k}+\sum_{1\le i\le k}\varphi(p^i)\left(\frac{p^k}{p^i}\right)^2 \\
+     &= p^{2k}+p^{2k}\sum_{1\le i\le k}\frac{p^i-p^{i-1}}{p^{2i}} \\
+     &= p^{2k}+p^{2k} p^{-k-1}\left(p^k-1\right) \\
+     &= p^{k-1}\left(p^{k+1}+p^k-1\right)\\
+  g(n) &= \prod_{p^k|n}
+     p^{k-1}\left(p^{k+1}+p^k-1\right)
+  \end{align*}
+
+  This last product is taken for every $p^k$ dividing $n$, where $p$ is prime and $k$ is max.
+
+
+\end{letter}
+\end{document}

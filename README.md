@@ -11,4 +11,10 @@ $$\sum_{k=1}^{\infty}\frac{(-1)^{\left\lfloor\sqrt{k}+\sqrt{k+1}\right\rfloor}}{
 
 
 ## AMM 12003
-Proposed in AMM 2017, issue 8
+Given an odd positive $n$, compute:
+    
+$$\sum_{k=1}^{n}\frac{\gcd(k, n)}{\cos^2\frac{k \pi}{n}}$$
+    
+* Proposed in American Mathematical Magazine 2017, issue 8
+* [My Solution](https://github.com/ricbit/math/blob/main/pdf/amm12003.pdf)
+
