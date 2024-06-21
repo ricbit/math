@@ -1,0 +1,164 @@
+\documentclass{letter}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\signature{Ricardo Bittencourt}
+\begin{document}
+
+\newtheorem{lemma}{Lemma}
+
+\begin{letter}{}
+
+\textbf{11999.} Evaluate
+
+  $$\sum_{k=1}^{\infty}\frac{(-1)^{\left\lfloor\sqrt{k}+\sqrt{k+1}\right\rfloor}}{k(k+1)}$$
+
+  \textbf{Solution.} Let $k=q^2+r$, where $q,r$ are integers with $q>0$ and $0\le r<2q+1$. We claim that:
+
+  $$(-1)^{\left\lfloor\sqrt{k}+\sqrt{k+1}\right\rfloor} =
+    \left.
+    \begin{cases}
+      1 & \text{for } 0\le r < q \\
+      -1 & \text{for } q\le r < 2q+1
+    \end{cases}
+    \right. $$ 
+
+We need the four lemmas below to prove this.
+
+  \begin{lemma}
+    If $0\le r<q$, then $2q < \sqrt{k}+\sqrt{k+1}$.
+  \end{lemma}
+  \begin{proof}
+This is trivial since $\sqrt{q^2+r}+\sqrt{q^2+r+1} > \sqrt{q^2}+\sqrt{q^2}>2q$.
+  \end{proof}
+
+  \begin{lemma}
+    If $0\le r <q$, then $\sqrt{k}+\sqrt{k+1}<2q+1$.
+  \end{lemma}
+
+  \begin{proof}
+  We start by noticing that $\left(q+\frac{r}{2q}\right)^2=q^2+r+\frac{r^2}{4q^2}\ge q^2+r$, since the last term is non-negative. Therefore, $q+\frac{r}{2q}\ge\sqrt{q^2+r}$, with equality only when $r=0$. Now we apply it twice:
+
+  \begin{align*}
+    \sqrt{q^2+r}+\sqrt{q^2+r+1} 
+    &\le \sqrt{q^2+q-1}+\sqrt{q^2+q} \\
+    &< q+\frac{q-1}{2q}+q+\frac{q}{2q} \\
+    &< 2q+1-\frac{1}{2q} \\
+    &< 2q+1 \qedhere
+  \end{align*}
+  \end{proof}
+
+  \begin{lemma}
+    If $q\le r <2q+1$, then $2q+1<\sqrt{k}+\sqrt{k+1}$.
+  \end{lemma}
+  \begin{proof}
+    Consider the sequences $(q,\sqrt{q},1)$ and $(q,\sqrt{q},0)$ and apply Minkowski's inequality:
+    \begin{align*}
+      \sqrt{q^2+r}+\sqrt{q^2+r+1}  
+        &\ge \sqrt{q^2+q}+\sqrt{q^2+q+1}  \\
+        &> \sqrt{(2q)^2+(2\sqrt{q})^2+1^2} \\
+        &> \sqrt{4q^2+4q+1} \\
+        &> 2q+1 \qedhere
+    \end{align*}
+  \end{proof}
+
+  \begin{lemma}
+    If $q\le r <2q+1$, then $\sqrt{k}+\sqrt{k+1}<2q+2$.
+  \end{lemma}
+\begin{proof}
+  We can use again the inequality $\sqrt{q^2+r}\le q+\frac{r}{2q}$ to get:
+  \begin{align*}
+    \sqrt{q^2+2q}+\sqrt{q^2+2q+1}
+    &< q+\frac{2q}{2q}+q+1 \\
+    &< 2q+2 \qedhere
+  \end{align*}
+\end{proof}
+
+When $0\le r<q$, from Lemmas 1 and 2, we have:
+
+\begin{align*}
+  2q < \sqrt{k}+\sqrt{k+1} < 2q+1 &\implies 
+\left\lfloor \sqrt{k}+\sqrt{k+1} \right\rfloor = 2q \\
+  &\implies (-1)^{
+  \left\lfloor \sqrt{k}+\sqrt{k+1} \right\rfloor} =1
+\end{align*}
+
+When $q\le r<2q+1$, from Lemmas 3 and 4, we have:
+
+\begin{align*}
+  2q+1 < \sqrt{k}+\sqrt{k+1} < 2q+2 &\implies 
+\left\lfloor \sqrt{k}+\sqrt{k+1} \right\rfloor = 2q+1\\
+  &\implies (-1)^{
+  \left\lfloor \sqrt{k}+\sqrt{k+1} \right\rfloor} =-1
+\end{align*}
+
+Since we can write every positive integer as $q^2+r$ with $0\le r<2q+1$, then we can write the original summation as:
+
+$$\sum_{k=1}^{\infty}\frac{(-1)^{\left\lfloor\sqrt{k}+\sqrt{k+1}\right\rfloor}}{k(k+1)}
+=
+\sum_{q\ge 1}\left(\sum_{q^2\le r<q^2+q}\frac{1}{r(r+1)}\right)-
+\sum_{q\ge 1}\left(\sum_{q^2+q\le r\le q^2+2q}\frac{1}{r(r+1)}\right)
+$$
+
+Let's consider the first summation. After splitting the fractions, the sum telescope:
+
+\begin{align*}
+\sum_{q\ge 1}\left(\sum_{q^2\le r<q^2+q}\frac{1}{r(r+1)}\right)
+  &= 
+  \sum_{q\ge 1}\left(\sum_{q^2\le r<q^2+q}\frac{1}{r}-\frac{1}{r+1}\right) \\
+  &=
+  \sum_{q\ge 1}\left(\frac{1}{q^2}-\frac{1}{q^2+q}\right) \\
+  &=
+  \sum_{q\ge 1}\left(\frac{1}{q^2}-\frac{1}{q}+\frac{1}{q+1}\right) \\
+  &=
+  \sum_{q\ge 1}\frac{1}{q^2}
+  -\sum_{q\ge 1}\frac{1}{q}
+  +\sum_{q\ge 1}\frac{1}{q+1} \\
+  &=
+  \sum_{q\ge 1}\frac{1}{q^2}
+  -\sum_{q\ge 1}\frac{1}{q}
+  +\sum_{q\ge 2}\frac{1}{q} \\
+  &=
+  \sum_{q\ge 1}\frac{1}{q^2}
+  -\sum_{q\ge 1}\frac{1}{q}
+  +\left(\sum_{q\ge 1}\frac{1}{q}\right) -1\\
+  &=
+  \sum_{q\ge 1}\frac{1}{q^2}-1 \\
+  &=\zeta(2)-1 \\
+  &=\frac{\pi^2}{6}-1
+\end{align*}
+
+The same can be done with the second summation:
+
+\begin{align*}
+\sum_{q\ge 1}\left(\sum_{q^2+q\le r\le q^2+2q}\frac{1}{r(r+1)}\right)
+  &= 
+  \sum_{q\ge 1}\left(\sum_{q^2+q\le r\le q^2+2q}\frac{1}{r}-\frac{1}{r+1}\right) \\
+  &=
+  \sum_{q\ge 1}\left(\frac{1}{q^2+q}-\frac{1}{q^2+2q+1}\right) \\
+  &=
+  \sum_{q\ge 1}\left(\frac{1}{q}-\frac{1}{q+1}-\frac{1}{(q+1)^2}\right) \\
+  &=
+  \sum_{q\ge 1}\frac{1}{q}
+  -\sum_{q\ge 1}\frac{1}{q+1}
+  -\sum_{q\ge 1}\frac{1}{(q+1)^2} \\
+  &=
+  \sum_{q\ge 1}\frac{1}{q^2}
+  -\left(\sum_{q\ge 1}\frac{1}{q}\right)+1
+  -\left(\sum_{q\ge 1}\frac{1}{q^2}\right)+1 \\
+  &=
+  2-\sum_{q\ge 1}\frac{1}{q^2} \\
+  &=2-\zeta(2) \\
+  &=2-\frac{\pi^2}{6}
+\end{align*}
+
+The original summation can now be expressed as the two partial sums, arriving the final result:
+  
+  \begin{align*}
+    \sum_{k=1}^{\infty}\frac{(-1)^{\left\lfloor\sqrt{k}+\sqrt{k+1}\right\rfloor}}{k(k+1)}
+    &= \frac{\pi^2}{6}-1-\left(2-\frac{\pi^2}{6}\right) \\
+    &= \frac{\pi^2}{3}-3
+  \end{align*}
+
+\end{letter}
+\end{document}
