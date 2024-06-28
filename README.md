@@ -42,6 +42,12 @@ Let $f(n)$ denote the number of ordered partitions of a positive integer $n$ suc
 * Solution in [Mathematics Magazine 2023, issue 4](https://maa.tandfonline.com/doi/abs/10.1080/0025570X.2023.2237380)
 * [My Solution](https://github.com/ricbit/math/blob/main/pdf/mm2154.pdf)
 
+## MM 2161
+Let $x_n$ denote the number of bitstrings of length $n$ which contain neither $11$ nor $000$ as substrings. Find a recursive formula for $x_n$.
+* Proposed in [Mathematics Magazine 2023, issue 1](https://maa.tandfonline.com/doi/abs/10.1080/0025570X.2023.2167389)
+* Solution in [Mathematics Magazine 2024, issue 1](https://maa.tandfonline.com/doi/abs/10.1080/0025570X.2024.2295209)
+* [My Solution](https://github.com/ricbit/math/blob/main/pdf/mm2161.pdf)
+
 ## MM 2171
 Evaluate the following sums in closed form.
 
