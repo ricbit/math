@@ -1,0 +1,90 @@
+\documentclass{letter}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\signature{Ricardo Bittencourt}
+\begin{document}
+
+\newtheorem{lemma}{Lemma}
+
+\begin{letter}{}
+
+  \textbf{2147.} Evaluate:
+  $$\prod_{n=2}^{\infty}\frac{n^4+4}{n^4-1}$$
+
+  \textbf{Solution.} We start by factoring and completing squares:
+
+\begin{align*}
+\prod_{n=2}^{\infty}\frac{n^4+4}{n^4-1} &=
+  \prod_{n=2}^{\infty}\frac{n^4+4n^2+4-4n^2}
+  {\left(n^2+1\right)\left(n^2-1\right)} \\
+  &= \prod_{n=2}^{\infty}\frac{\left(n^2+2\right)^2-\left(2n\right)^2}
+  {\left(n^2+1\right)\left(n+1\right)\left(n-1\right)} \\
+  &= \prod_{n=2}^{\infty}\frac{\left(n^2+2n+2\right)\left(n^2-2n+2\right)}
+  {\left(n^2+1\right)\left(n+1\right)\left(n-1\right)} \\
+  &= \prod_{n=2}^{\infty}\frac{\left(n^2+2n+1+1\right)\left(n^2-2n+1+1\right)}
+  {\left(n^2+1\right)\left(n+1\right)\left(n-1\right)} \\
+  &= \prod_{n=2}^{\infty}\frac{\left(\left(n+1\right)^2+1\right)
+  \left(\left(n-1\right)^2+1\right)}
+  {\left(n^2+1\right)\left(n+1\right)\left(n-1\right)} \\
+\end{align*}
+
+At this point we can split the expression into five products, and change their indexes:
+$$  \prod_{n=2}^{\infty}\frac{\left(\left(n+1\right)^2+1\right)
+  \left(\left(n-1\right)^2+1\right)}
+  {\left(n^2+1\right)\left(n+1\right)\left(n-1\right)} = A B C D E $$
+
+\begin{align*}
+  A &= \prod_{n=2}^{\infty}\left(n+1\right)^2+1
+     = \prod_{n=3}^{\infty}n^2+1
+     = \frac{1}{\left(1^2+1\right)\left(2^2+1\right)}
+       \prod_{n=1}^{\infty}n^2+1 
+     = \frac{1}{10} \prod_{n=1}^{\infty}n^2+1 \\
+  B &= \prod_{n=2}^{\infty}\left(n-1\right)^2+1
+     = \prod_{n=1}^{\infty}n^2+1 \\
+  C &= \prod_{n=2}^{\infty}\frac{1}{n^2+1} 
+     = \left(1^2+1\right)\prod_{n=1}^{\infty}\frac{1}{n^2+1}
+     = 2\prod_{n=1}^{\infty}\frac{1}{n^2+1} \\
+  D &= \prod_{n=2}^{\infty}\frac{1}{n+1} 
+     = \prod_{n=3}^{\infty}\frac{1}{n} 
+     = \left(1\right)\left(2\right)\prod_{n=1}^{\infty}\frac{1}{n} 
+     = 2\prod_{n=1}^{\infty}\frac{1}{n} \\
+  E &= \prod_{n=2}^{\infty}\frac{1}{n-1} 
+     = \prod_{n=1}^{\infty}\frac{1}{n} 
+\end{align*}
+
+Joining the products again, we obtain:
+
+\begin{align*}
+ABCDE &= 
+     \frac{2}{5} \prod_{n=1}^{\infty}
+     \frac{\left(n^2+1\right) \left(n^2+1\right)}
+     {\left(n^2+1\right)\left(n\right)\left(n\right)} \\
+  &= \frac{2}{5} \prod_{n=1}^{\infty}
+     \frac{n^2+1}{n^2}\\
+  &= \frac{2}{5} \prod_{n=1}^{\infty}
+     1+\frac{1}{n^2}
+\end{align*}
+
+This expression can be simplified with the well-known formula for $\sinh$:
+
+\begin{align*}
+  \sinh\left(x\right) &=
+  x \prod_{n=1}^{\infty}1+\frac{x^2}{n^2 \pi^2} \\
+  \sinh\left(\pi x\right) &= \pi x
+    \prod_{n=1}^{\infty}1+\frac{\left(\pi x\right)^2}{n^2 \pi^2} \\
+  \frac{\sinh\left(\pi x\right)}{\pi x} &= 
+    \prod_{n=1}^{\infty}1+\frac{x^2}{n^2}
+\end{align*}
+
+By using $x=1$, we arrive at the final expression:
+
+\begin{align*}
+  \frac{2}{5} \prod_{n=1}^{\infty}
+     1+\frac{1}{n^2} &= 
+  \frac{2}{5} \left(\frac{\sinh\left(\pi\right)}{\pi}\right) \\
+  &= \frac{2\sinh\left(\pi\right)}{5\pi} 
+\end{align*}
+
+\end{letter}
+\end{document}
