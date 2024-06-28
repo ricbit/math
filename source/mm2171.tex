@@ -1,0 +1,88 @@
+\documentclass{letter}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\signature{Ricardo Bittencourt}
+\DeclareMathOperator{\csch}{csch}
+\begin{document}
+
+\newtheorem{lemma}{Lemma}
+\newcommand\term[1]{\frac{x^{#1}}{#1!}}
+
+\begin{letter}{}
+
+  \textbf{2171.} Evaluate the following sums in closed form.
+
+  (a) $\displaystyle{\sum_{n=0}^{\infty}\left(\cos x -1 +\term{2}-\term{4}+\cdots+
+    \left(-1\right)^{n-1}\frac{x^{2n}}{\left(2n\right)!}   \right)}$
+
+  (b) $\displaystyle{\sum_{n=0}^{\infty}\left(\sin x -x +\term{3}-\term{5}+\cdots+
+    \left(-1\right)^{n-1}\frac{x^{2n+1}}{\left(2n+1\right)!}   \right)}$
+  
+  \textbf{Solution.}
+
+  For the item (a), we start by writing the infinite sum in a more concise format, and then open the $\cos$ in a series:
+
+  \begin{align*}
+  A(x) &= \sum_{n=0}^{\infty}\left(\cos x -1 +\term{2}-\term{4}+\cdots+
+    \left(-1\right)^{n-1}\frac{x^{2n}}{\left(2n\right)!}   \right) \\
+       &= \sum_{n=0}^{\infty}\left(\cos x 
+    -\sum_{k=0}^{n}\left(-1\right)^k \frac{x^{2k}}{(2k)!} \right)\\
+       &= \sum_{n=0}^{\infty}\left(
+    \sum_{k=0}^{\infty}\left(-1\right)^k \frac{x^{2k}}{(2k)!} 
+    -\sum_{k=0}^{n}\left(-1\right)^k \frac{x^{2k}}{(2k)!} \right) \\
+       &= \sum_{n=0}^{\infty}\left(
+    \sum_{k=n+1}^{\infty}\left(-1\right)^k \frac{x^{2k}}{(2k)!} \right)\\
+       &= \sum_{k\ge 1}\left(
+    \sum_{0\le n < k}\left(-1\right)^k \frac{x^{2k}}{(2k)!} \right)\\
+       &= \sum_{k\ge 1}\left(k
+    \left(-1\right)^k \frac{x^{2k}}{(2k)!} \right)\\
+  \end{align*}
+
+  At this point we can multiply by $2/x$ and introduce $q=k-1$ to get the result:
+  \begin{align*}
+  A(x) &= \sum_{k\ge 1}\left(k\left(-1\right)^k \frac{x^{2k}}{(2k)!} \right) \\
+  \frac{2}{x}A(x) &= \sum_{k\ge 1}\left(2k\left(-1\right)^k \frac{x^{2k-1}}{(2k)!} \right) \\
+    &= \sum_{k\ge 1}\left(\left(-1\right)^k \frac{x^{2k-1}}{(2k-1)!} \right) \\
+    &= \sum_{k\ge 1}\left(-1\right)^k \frac{x^{2k-1}}{(2k-1)!} \\
+    &= \sum_{q\ge 0}\left(-1\right)^{q+1} \frac{x^{2q+1}}{(2q+1)!} \\
+    &= -\sin x \\
+  A(x) &= -\frac{x\sin x}{2}\\
+  \end{align*}
+  
+  The calculations for item (b) are similar:
+
+  \begin{align*}
+  B(x) &= \sum_{n=0}^{\infty}\left(\sin x -x +\term{3}-\term{5}+\cdots+
+    \left(-1\right)^{n-1}\frac{x^{2n+1}}{\left(2n+1\right)!}   \right) \\
+       &= \sum_{n=0}^{\infty}\left(
+    \sum_{k=0}^{\infty}\left(-1\right)^k \frac{x^{2k+1}}{(2k+1)!} 
+    -\sum_{k=0}^{n}\left(-1\right)^k \frac{x^{2k+1}}{(2k+1)!} \right) \\
+       &= \sum_{n=0}^{\infty}\left(
+    \sum_{k=n+1}^{\infty}\left(-1\right)^k \frac{x^{2k+1}}{(2k+1)!} \right)\\
+       &= \sum_{k\ge 1}\left(
+    \sum_{0\le n < k}\left(-1\right)^k \frac{x^{2k+1}}{(2k+1)!} \right)\\
+       &= \sum_{k\ge 1}\left(k
+    \left(-1\right)^k \frac{x^{2k+1}}{(2k+1)!} \right)\\
+  \end{align*}
+
+  This time we multiply by $2$ and split the sum into two parts:
+  
+  \begin{align*}
+    B(x) &= \sum_{k\ge 1}\left(k
+    \left(-1\right)^k \frac{x^{2k+1}}{(2k+1)!} \right)\\
+    2B(x) &= \sum_{k\ge 1}\left(2k
+    \left(-1\right)^k \frac{x^{2k+1}}{(2k+1)!} \right)\\
+    &= \sum_{k\ge 1}\left((2k+1-1)
+    \left(-1\right)^k \frac{x^{2k+1}}{(2k+1)!} \right)\\
+    &= \sum_{k\ge 1}\left(\left(-1\right)^k \frac{x^{2k+1}}{(2k)!} \right)
+      - \sum_{k\ge 1}\left(\left(-1\right)^k \frac{x^{2k+1}}{(2k+1)!} \right) \\
+    &= x\sum_{k\ge 1}\left(\left(-1\right)^k \frac{x^{2k}}{(2k)!} \right)
+      - (\sin x - x) \\
+    &= x(\cos x - 1) - (\sin x - x) \\
+    &= x\cos x - \sin x \\
+    B(x) &= \frac{x\cos x - \sin x}{2}
+  \end{align*}
+
+\end{letter}
+\end{document}

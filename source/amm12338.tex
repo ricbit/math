@@ -1,0 +1,119 @@
+\documentclass{letter}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\signature{Ricardo Bittencourt}
+\DeclareMathOperator{\csch}{csch}
+\begin{document}
+
+\newtheorem{lemma}{Lemma}
+
+\begin{letter}{}
+  \textbf{12338.} Prove:
+  $$\int_0^\infty\frac{\cos\left(x\right)-1}{x\left(e^x-1\right)}\;dx
+    = \frac{1}{2}\ln\left(\pi\csch\left(\pi\right)\right)$$
+
+  \textbf{Solution.} We start with the series for $\cos x$:
+
+\begin{align*}
+  \int_0^\infty\frac{\cos\left(x\right)-1}{x\left(e^x-1\right)}\;dx
+    &= \int_0^\infty\frac{\left(\sum_{n=0}^\infty\frac{(-1)^n x^{2n}}{(2n)!}
+    \right)-1}{x\left(e^x-1\right)}\;dx \\
+    &= \int_0^\infty\sum_{n=1}^\infty
+      \frac{(-1)^n x^{2n-1}}{(2n)!\left(e^x-1\right)}\;dx \\
+    &= \sum_{n=1}^\infty\frac{(-1)^n}{(2n)!}\int_0^\infty
+      \frac{x^{2n-1}}{e^x-1}\;dx 
+\end{align*}
+
+We know the Riemann zeta can be expressed as an integral:
+
+$$\zeta(s)=\frac{1}{\Gamma(s)}\int_0^\infty\frac{x^{s-1}}{e^x-1}\;dx$$
+
+and therefore our previous integral can be expressed as $\zeta(2n)\Gamma(2n)$:
+
+\begin{align*}
+  \sum_{n=1}^\infty\frac{(-1)^n}{(2n)!}\int_0^\infty
+      \frac{x^{2n-1}}{e^x-1}\;dx 
+  &= \sum_{n=1}^\infty\frac{(-1)^n\zeta(2n)\Gamma(2n)}{(2n)!}\\
+  &= \sum_{n=1}^\infty\frac{(-1)^n\zeta(2n)(2n-1)!}{(2n)!}\\
+  &= \sum_{n=1}^\infty\frac{(-1)^n\zeta(2n)}{2n}
+\end{align*}
+
+The zeta function $\zeta(2n)$ can be expressed in closed form as a function of the Bernoulli numbers:
+
+$$\zeta(2n)=\frac{(-1)^{n+1}B_{2n}(2\pi)^{2n}}{2(2n)!}$$
+
+leading to:
+
+\begin{align*}
+  \sum_{n=1}^\infty\frac{(-1)^n\zeta(2n)}{2n} &= 
+    \sum_{n=1}^\infty\frac{(-1)^n(-1)^{n+1}B_{2n}(2\pi)^{2n}}{4n(2n)!} \\
+  &= \sum_{n=1}^\infty-\frac{B_{2n}(2\pi)^{2n}}{4n(2n)!}
+\end{align*}
+
+This last series we will solve with a lemma:
+
+\begin{lemma}
+$\ln(k \csch k) = 
+   -\sum_{n=1}^\infty\frac{B_{2n}(2k)^{2n}}{2n(2n)!}$
+\end{lemma}
+\begin{proof}
+We start with the logaritmic differentiation of $x \csch x$:
+
+\begin{align*}
+  \frac{d}{dx}\ln(x \csch x) &=
+    \frac{1}{x \csch x}\left(\csch(x)- x\coth(x)\csch(x)\right)\\
+    &= \frac{1}{x}-\coth(x)\\
+\end{align*}
+
+Using the series of $\coth x$:
+
+$$\coth x=\sum_{n=0}^\infty\frac{2^{2n}B_{2n}x^{2n-1}}{(2n)!}$$
+
+we have:
+
+\begin{align*}
+  \frac{1}{x}-\coth(x) &= \frac{1}{x} - 
+    \sum_{n=0}^\infty\frac{2^{2n}B_{2n}x^{2n-1}}{(2n)!}\\
+  &= -\sum_{n=1}^\infty\frac{2^{2n}B_{2n}x^{2n-1}}{(2n)!}
+\end{align*}
+
+At this point we can integrate both sides:
+
+\begin{align*}
+  \int_0^k\frac{d}{dx}\ln(x \csch x)\;dx 
+    &= -\int_0^k\sum_{n=1}^\infty\frac{2^{2n}B_{2n}x^{2n-1}}{(2n)!}\;dx\\
+  \ln(k \csch k) - \lim_{x\to 0}\ln(x \csch x) 
+    &= -\sum_{n=1}^\infty\frac{2^{2n}B_{2n}}{(2n)!}\int_0^k x^{2n-1}\;dx\\
+    &= -\sum_{n=1}^\infty\frac{2^{2n}B_{2n}}{(2n)!}
+      \left(\frac{k^{2n}}{2n}\right)\\
+    &= -\sum_{n=1}^\infty\frac{B_{2n}(2k)^{2n}}{2n(2n)!}
+\end{align*}
+
+The limit on the left side can be proven to be zero:
+\begin{align*}
+  \lim_{x\to 0}\ln(x \csch x) &=
+    \ln\left(\lim_{x\to 0}x \csch x\right) \\
+  &= \ln\left(\lim_{x\to 0}\frac{x}{\sinh x}\right) \\
+  &= \ln\left(\lim_{x\to 0}\frac{1}{\cosh x}\right) \\
+  &= 0
+\end{align*}
+
+This completes the proof.
+
+\end{proof}
+
+We finish the original integral by considering the series for $\ln(\pi \csch \pi)$:
+
+\begin{align*}
+  \int_0^\infty\frac{\cos\left(x\right)-1}{x\left(e^x-1\right)}
+  &= \sum_{n=1}^\infty-\frac{B_{2n}(2\pi)^{2n}}{4n(2n)!} \\
+  &= \frac{1}{2}\left(-\sum_{n=1}^\infty\frac{B_{2n}(2\pi)^{2n}}{2n(2n)!} 
+  \right)\\
+  &= \frac{1}{2}\ln(\pi \csch \pi)
+\end{align*}
+
+
+
+\end{letter}
+\end{document}
