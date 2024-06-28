@@ -39,7 +39,7 @@ Evaluate:
 ## MM 2154
 Let $f(n)$ denote the number of ordered partitions of a positive integer $n$ such that all of the parts are odd. For example, $f(5)=5$ since 5 can be written as $5$, $3+1+1$, $1+3+1$, $1+1+3$, and $1+1+1+1+1$. Determine $f(n)$.
 * Proposed in [Mathematics Magazine 2022, issue 4](https://maa.tandfonline.com/doi/abs/10.1080/0025570X.2022.2103317)
-* fix Solution in [Mathematics Magazine 2023, issue 3](https://maa.tandfonline.com/doi/abs/10.1080/0025570X.2023.2206281)
+* Solution in [Mathematics Magazine 2023, issue 4](https://maa.tandfonline.com/doi/abs/10.1080/0025570X.2023.2237380)
 * [My Solution](https://github.com/ricbit/math/blob/main/pdf/mm2154.pdf)
 
 ## MM 2171
