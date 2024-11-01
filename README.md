@@ -30,6 +30,7 @@ Prove:
 
 ## CMJ 1258
 For a positive integer $n$, show that: 
+
 $$\left(\frac{
          \cos(1)+\cos(2)+\cos(3)+\cdots+\cos(n)
        }{
