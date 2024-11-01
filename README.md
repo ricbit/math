@@ -25,8 +25,8 @@ Prove:
 
 $$\int_0^\infty\frac{\cos\left(x\right)-1}{x\left(e^x-1\right)} dx
        = \frac{1}{2}\ln\left(\pi\text{ csch}\left(\pi\right)\right)$$
-* fix Proposed in [American Mathematical Monthly 2022, issue 7](https://maa.tandfonline.com/doi/abs/10.4169/amer.math.monthly.124.8.754)
-* fix Solution in [American Mathematical Monthly 2019, issue 5](https://maa.tandfonline.com/doi/full/10.1080/00029890.2019.1583529)
+* Proposed in [American Mathematical Monthly 2022, issue 7](https://maa.tandfonline.com/doi/full/10.1080/00029890.2022.2075672#d1e95)
+* Solution in [American Mathematical Monthly 2024, issue 4](https://maa.tandfonline.com/doi/full/10.1080/00029890.2024.2305019)
 * [My Solution](https://github.com/ricbit/math/blob/main/pdf/amm12338.pdf)
 
 ## CMJ 1258
