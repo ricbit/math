@@ -28,6 +28,17 @@ Prove:
 * fix Solution in [American Mathematical Monthly 2019, issue 5](https://maa.tandfonline.com/doi/full/10.1080/00029890.2019.1583529)
 * [My Solution](https://github.com/ricbit/math/blob/main/pdf/amm12338.pdf)
 
+## CMJ 1258
+For a positive integer $n$, show that:
+     
+       $$ \left(\frac{
+         \cos(1)+\cos(2)+\cos(3)+\cdots+\cos(n)
+       }{
+         \sin(1)+\sin(2)+\cdots+\sin(n)
+      }\right)^2=\frac{2}{1-\cos\left(n+1\right)}-1$$
+* Proposed in [The College Mathematics Journal 2023, issue 5](https://maa.tandfonline.com/doi/full/10.1080/07468342.2023.2237385)
+* Solution in [The College Mathematics Journal 2024, issue 5](https://maa.tandfonline.com/doi/full/10.1080/07468342.2024.2395229?src=)
+* [My Solution](https://github.com/ricbit/math/blob/main/pdf/cmj1258.pdf)
 
 ## MM 2147
 Evaluate:
