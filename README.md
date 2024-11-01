@@ -22,6 +22,7 @@ $$\sum_{k=1}^{n}\frac{\gcd(k, n)}{\cos^2\frac{k \pi}{n}}$$
 
 ## AMM 12338
 Prove:
+
     $$\int_0^\infty\frac{\cos\left(x\right)-1}{x\left(e^x-1\right)} dx
        = \frac{1}{2}\ln\left(\pi\text{ csch}\left(\pi\right)\right)$$
 * fix Proposed in [American Mathematical Monthly 2022, issue 7](https://maa.tandfonline.com/doi/abs/10.4169/amer.math.monthly.124.8.754)
@@ -42,6 +43,7 @@ $$\left(\frac{
 
 ## MM 2147
 Evaluate:
+
   $$\prod_{n=2}^{\infty}\frac{n^4+4}{n^4-1}$$
 * Proposed in [Mathematics Magazine 2022, issue 3](https://maa.tandfonline.com/doi/abs/10.1080/0025570X.2022.2061246)
 * Solution in [Mathematics Magazine 2023, issue 3](https://maa.tandfonline.com/doi/abs/10.1080/0025570X.2023.2206281)
@@ -74,7 +76,7 @@ Evaluate the following sums in closed form.
 ## MM 2186
 Evaluate:
 
-$$\int_0^1\frac{\text{arctanh}\left(x \sqrt{2-x^2}\right)}{x}\;dx $$
+$$\int_0^1\frac{\text{arctanh}\left(x \sqrt{2-x^2}\right)}{x}\,dx $$
 * Proposed in [Mathematics Magazine 2024, issue 1](https://maa.tandfonline.com/doi/epdf/10.1080/0025570X.2024.2295209)
 * Solution sent, deadline 2024-07-01
 
