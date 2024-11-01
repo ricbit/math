@@ -29,9 +29,8 @@ Prove:
 * [My Solution](https://github.com/ricbit/math/blob/main/pdf/amm12338.pdf)
 
 ## CMJ 1258
-For a positive integer $n$, show that:
-     
-       $$ \left(\frac{
+For a positive integer $n$, show that: 
+$$\left(\frac{
          \cos(1)+\cos(2)+\cos(3)+\cdots+\cos(n)
        }{
          \sin(1)+\sin(2)+\cdots+\sin(n)
