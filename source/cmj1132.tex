@@ -1,0 +1,54 @@
+\documentclass{letter}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\signature{Ricardo Bittencourt}
+\begin{document}
+
+\newtheorem{lemma}{Lemma}
+
+\begin{letter}{}
+\textbf{1132.} Determine a closed form of the series
+
+  $$ \sum_{n=1}^{\infty} \sum_{m=1}^{\infty}\frac{x^{n+m}}{(n+m)!}$$
+    
+  \textbf{Solution.} We start by introducing $p=n+m$, so $m=p-n$ and $m\ge 1\implies p\ge n+1$:
+
+  \begin{align*}
+    \sum_{n=1}^{\infty} \sum_{m=1}^{\infty}\frac{x^{n+m}}{(n+m)!}
+    &= \sum_{n\ge 1} \sum_{m\ge 1}\frac{x^{n+m}}{(n+m)!} \\
+    &= \sum_{n\ge 1} \sum_{p\ge n+1}\frac{x^p}{p!} \\
+    &= \sum \sum \frac{x^p}{p!}[n\ge 1][p\ge n+1]
+  \end{align*}
+
+  Notice that $p\ge n+1\implies n+1\le p \implies n\le p-1$ and now we can interchange the summations.
+
+  \begin{align*}
+    \sum \sum \frac{x^p}{p!}[n\ge 1][p\ge n+1]
+    &= \sum \sum \frac{x^p}{p!}[1\le n\le p-1] \\
+    &= \sum \sum \frac{x^p}{p!}[1\le p-1][n\le p-1] \\
+    &= \sum \sum \frac{x^p}{p!}[p\ge 2][1\le n\le p-1] \\
+    &= \sum_{p\ge 2} \left(\sum_{1\le n\le p-1} \frac{x^p}{p!}\right)
+  \end{align*} 
+
+  This summation can be massaged to bring out the exponential series:
+
+  \begin{align*}
+    \sum_{p\ge 2}\left( \sum_{1\le n\le p-1} \frac{x^p}{p!} \right)
+    &= \sum_{p\ge 2} \frac{p-1}{p!}x^p \\
+    &= \sum_{p\ge 2} \frac{p-1}{p!}x^p + \frac{x^p}{p!} - \frac{x^p}{p!} \\
+    &= \sum_{p\ge 2} \frac{p}{p!}x^p - \frac{x^p}{p!} \\
+    &= \sum_{p\ge 2} \frac{x^p}{(p-1)!} - \frac{x^p}{p!} \\
+    &= \sum_{p\ge 2} x\frac{x^{p-1}}{(p-1)!} -\sum_{p\ge 2} \frac{x^p}{p!} \\
+    &= \left(x\sum_{p\ge 1} \frac{x^p}{p!}\right) 
+       -\left( -1-x+\sum_{p\ge 0} \frac{x^p}{p} \right) \\
+    &= \left(x \left(e^x-1\right)\right) 
+       -\left( -1-x+e^x\right) \\
+    &= xe^x -x +1 + x-e^x \\
+    &= 1+(x-1)e^x
+  \end{align*} 
+
+  The desired closed form, therefore, is $1+(x-1)e^x$.
+
+\end{letter}
+\end{document}

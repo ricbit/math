@@ -43,6 +43,14 @@ $$\sum_{n=0}^\infty \text{csch} \left(2^n\right)$$
 * Proposed in [American Mathematical Monthly 2023, issue 6](https://maa.tandfonline.com/doi/full/10.1080/00029890.2023.2188815)
 * Solution sent, deadline 2023-10-31
 
+## CMJ 1132
+Determine a closed form of the series
+
+$$\sum_{n=1}^{\infty} \sum_{m=1}^{\infty}\frac{x^{n+m}}{(n+m)!}$$
+* Proposed in [The College Mathematics Journal 2018, issue 4](https://maa.tandfonline.com/doi/full/10.1080/07468342.2018.1503483)
+* Solution in [The College Mathematics Journal 2019, issue 4](https://maa.tandfonline.com/doi/full/10.1080/07468342.2019.1656482#d1e698)
+* [My Solution](https://github.com/ricbit/math/blob/main/pdf/cmj1132.pdf)
+
 ## CMJ 1258
 For a positive integer $n$, show that: 
 
