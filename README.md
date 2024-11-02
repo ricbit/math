@@ -29,6 +29,17 @@ $$\int_0^\infty\frac{\cos\left(x\right)-1}{x\left(e^x-1\right)} dx
 * Solution in [American Mathematical Monthly 2024, issue 4](https://maa.tandfonline.com/doi/full/10.1080/00029890.2024.2305019)
 * [My Solution](https://github.com/ricbit/math/blob/main/pdf/amm12338.pdf)
 
+## AMM 12398
+Evaluate:
+   
+$$\sum_{n=0}^\infty \csch \left(2^n\right)$$
+* Proposed in [American Mathematical Monthly 2023, issue 6](https://maa.tandfonline.com/doi/full/10.1080/00029890.2023.2188815)
+* fix Solution in [American Mathematical Monthly 2024, issue 4](https://maa.tandfonline.com/doi/full/10.1080/00029890.2024.2305019)
+* [My Solution](https://github.com/ricbit/math/blob/main/pdf/amm12398.pdf)
+
+   
+
+
 ## CMJ 1258
 For a positive integer $n$, show that: 
 

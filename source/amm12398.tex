@@ -1,0 +1,61 @@
+\documentclass{letter}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\signature{Ricardo Bittencourt}
+\DeclareMathOperator{\csch}{csch}
+\begin{document}
+
+\newtheorem{lemma}{Lemma}
+
+\begin{letter}{}
+  \textbf{12398.} Evaluate:
+
+  $$\sum_{n=0}^\infty \csch \left(2^n\right)$$.
+
+  \textbf{Solution.} First we notice that $\coth(x/2)-\coth(x)=\csch(x)$. Using the definitions:
+
+\begin{align*}
+  \coth\left(x/2\right) - \coth\left(x\right) &=
+  \frac{\mathrm{e}^x+1}{\mathrm{e}^x-1} 
+  - \frac{\mathrm{e}^{2x}+1}{\mathrm{e}^{2x}-1}\\
+  &=
+  \frac{\mathrm{e}^x+1}{\mathrm{e}^x-1} 
+  - \frac{\mathrm{e}^{2x}+1}{\left(\mathrm{e}^{x}-1\right)\left(\mathrm{e}^{x}-1\right)}\\
+  &=
+  \frac{\left(\mathrm{e}^x+1\right)^2 - \mathrm{e}^{2x} - 1}
+  {\left(\mathrm{e}^{x}-1\right)\left(\mathrm{e}^{x}-1\right)}\\
+  &=
+  \frac{2\mathrm{e}^{x}}{\mathrm{e}^{2x}-1}\\
+  &= \csch\left(x\right)
+\end{align*}
+
+Now the original sum telescopes:
+
+\begin{align*}
+  \sum_{n=0}^\infty \csch \left(2^n\right)
+  &=
+  \lim_{t\to \infty} 
+  \sum_{n=0}^t
+    \coth \left(2^{n-1}\right) - \coth \left(2^n\right)\\
+  &= 
+    \lim_{t\to \infty} 
+    \coth \left(1/2\right) + 
+        \sum_{n=1}^t \coth\left(2^{n-1}\right) - 
+        \sum_{n=0}^{t-1} \coth\left(2^{n}\right)
+    - \coth\left(2^t\right)\\
+  &= 
+    \lim_{t\to \infty} 
+    \coth \left(1/2\right)  
+    - \coth\left(2^t\right)\\
+  &= \coth\left(1/2\right) - 1
+\end{align*}
+
+Plugging in the definition we have our closed form: 
+
+$$\sum_{n=0}^\infty \csch \left(2^n\right)
+  = \coth\left(1/2\right) - 1 = \frac{\mathrm{e}+1}{\mathrm{e}-1}-1
+  = \frac{2}{\mathrm{e}-1}$$
+
+\end{letter}
+\end{document}
