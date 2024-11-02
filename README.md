@@ -29,6 +29,11 @@ $$\int_0^\infty\frac{\cos\left(x\right)-1}{x\left(e^x-1\right)} dx
 * Solution in [American Mathematical Monthly 2024, issue 4](https://maa.tandfonline.com/doi/full/10.1080/00029890.2024.2305019)
 * [My Solution](https://github.com/ricbit/math/blob/main/pdf/amm12338.pdf)
 
+## AMM 12377
+An integer is a $\textit{one-drop number}$ if its decimal digits $d_1\ldots d_n$ 
+satisfy $1\le d_1 \le \ldots\le d_i > d_{i+1} \le \ldots\le d_n$ for some $i$. For example, $13802$       and $49557$ are one-drop numbers. For $n \ge 2$, how many $n$-digit one-drop numbers are there?
+
+
 ## AMM 12398
 Evaluate:
    
