@@ -1,0 +1,47 @@
+\documentclass{letter}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\signature{Ricardo Bittencourt}
+\DeclareMathOperator{\csch}{csch}
+\begin{document}
+
+\newtheorem{lemma}{Lemma}
+
+\begin{letter}{}
+  \textbf{12344.} An integer is a \textit{one-drop number} if its decimal digits $d_1\ldots d_n$ satisfy $1\le d_1 \le \ldots\le d_i > d_{i+1} \le \ldots\le d_n$ for some $i$. For example, $13802$ and $49557$ are one-drop numbers. For $n \ge 2$, how many $n$-digit one-drop numbers are there?
+
+  \textbf{Solution.} We'll use the analytic combinatorics from Flajolet and Sedgewick. Let $SEQ(z)$ be the set of sequences of the digit $z$, and $SEQ_{\ge 1}(z)$ be the set of non-empty sequences of $z$. Their generating functions are given by:
+
+\begin{align*}
+SEQ(z) &= \frac{1}{1-z} \\
+SEQ_{\ge 1}(z) &= \frac{1}{1-z} - 1 = \frac{z}{1-z} 
+\end{align*} 
+
+Suppose the digits where the drop occur are $a$ and $b$, with $b<a$. The generating function of the one-drop numbers with these digits in the drop are:
+
+$$F(a, b) = SEQ(1)\ldots SEQ(a-1)SEQ_{\ge 1}(a)SEQ_{\ge 1}(b)SEQ(b+1)\ldots SEQ(9)$$
+
+The generating function of all one-drop numbers is, therefore, the sum of the previous generating functions for all valid $a, b$:
+
+\begin{align*}
+G(z) &= \sum_{1\le a\le 9}\,\sum_{0 \le b < a} F(a,b) \\
+     &= \sum_{1\le a\le 9}\,\sum_{0 \le b < a} SEQ(z)^{a-1}\, SEQ_{\ge 1}(z)\, SEQ_{\ge 1}(z)\, SEQ(z)^{9-b}\\
+     &= \sum_{1\le a\le 9}\,\sum_{0 \le b < a} SEQ(z)^{8+a-b}\,SEQ_{\ge 1}(z)^2\\
+     &= \sum_{1\le a\le 9}\,\sum_{0 \le b < a} \left(\frac{1}{1-z}\right)^{8+a-b}\,\left(\frac{z}{1-z}\right)^2\\
+     &=  \frac{z^2}{(1-z)^{10}}\sum_{1\le a\le 9}\,\left(\frac{1}{1-z}\right)^{a}
+\sum_{0 \le b < a} \left(1-z\right)^{b}\\
+     &=  \frac{z^2}{(1-z)^{10}}\sum_{1\le a\le 9}\,\left(\frac{1}{1-z}\right)^{a}\left(\frac{1-\left(1-z\right)^{a}}{z}\right)\\
+     &=  \frac{z}{(1-z)^{10}}\left(\sum_{1\le a\le 9}\,\left(\frac{1}{1-z}\right)^{a}-\sum_{1\le a\le 9}\,1\right)\\
+     &=  \frac{1}{(1-z)^{10}}\left(\frac{1-\left(1-z\right)^9}{\left(1-z\right)^9}-9z\right)\\
+     &=  \frac{1}{(1-z)^{19}}-\frac{1}{(1-z)^{10}}-\frac{9z}{(1-z)^{10}}
+\end{align*}
+
+The coefficients can be extracted directly, since $1/(1-z)^{k+1} = \sum_{n\ge 0}{n+k\choose k}x^n$ and multiplying by $z$ is a shift in the coefficients. The solution to the problem is:
+
+\begin{align*}
+[z^n]G(z) &= {n+18\choose 18}-{n+9\choose 9}-9{n+8\choose 9}
+\end{align*}
+
+\end{letter}
+\end{document}
