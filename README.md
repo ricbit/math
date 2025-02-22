@@ -63,6 +63,13 @@ $$\left(\frac{
 * Solution in [The College Mathematics Journal 2024, issue 5](https://maa.tandfonline.com/doi/full/10.1080/07468342.2024.2395229?src=)
 * [My Solution](https://github.com/ricbit/math/blob/main/pdf/cmj1258.pdf)
 
+## CMJ 1287
+Evaluate the following limit, with proof.
+
+$$\lim_{n\to\infty}\left(\sum_{k=1}^{n}\frac{2k}{n^2}\right)^n$$
+
+* Proposed in The [College Mathematics Journal 2024, issue 5](https://maa.tandfonline.com/doi/abs/10.1080/07468342.2024.2395229)
+
 ## MM 2147
 Evaluate:
 
