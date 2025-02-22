@@ -69,6 +69,7 @@ Evaluate the following limit, with proof.
 $$\lim_{n\to\infty}\left(\sum_{k=1}^{n}\frac{2k}{n^2}\right)^n$$
 
 * Proposed in The [College Mathematics Journal 2024, issue 5](https://maa.tandfonline.com/doi/abs/10.1080/07468342.2024.2395229)
+* Solution sent, deadline 2025-05-15
 
 ## MM 2147
 Evaluate:
