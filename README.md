@@ -71,6 +71,16 @@ $$\lim_{n\to\infty}\left(\sum_{k=1}^{n}\frac{2k}{n^2}\right)^n$$
 * Proposed in The [College Mathematics Journal 2024, issue 5](https://maa.tandfonline.com/doi/abs/10.1080/07468342.2024.2395229)
 * Solution sent, deadline 2025-05-15
 
+## CMJ 1295
+Prove that:
+
+$$\int_0^\infty\left(\frac{\coth(\pi x)}{x}-\frac{1}{\pi x^2}\right)^2\,dx=\frac{4\zeta(3)}{\pi}$$
+
+where $\zeta(3)=\sum_{n=1}^\infty\frac{1}{n^3}$.
+
+* Proposed in The [College Mathematics Journal 2025, issue 1](https://maa.tandfonline.com/doi/full/10.1080/07468342.2024.2424738#d1e146)
+* Solution sent, deadline 2025-06-15
+
 ## MM 2147
 Evaluate:
 
