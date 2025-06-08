@@ -1,0 +1,151 @@
+\documentclass{letter}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\signature{Ricardo Bittencourt}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator\arctanh{arctanh}
+\begin{document}
+
+\newtheorem{lemma}{Lemma}
+\newcommand\term[1]{\frac{x^{#1}}{#1!}}
+
+\begin{letter}{}
+  \textbf{2186.} Evaluate
+
+  $$\int_0^1\frac{\arctanh\left(x \sqrt{2-x^2}\right)}{x}\;dx $$
+
+ 
+  \textbf{Solution.}
+
+  Let $x=\sqrt{1-\cos\theta}$. It follows that $x\sqrt{2-x^2}=\sin\theta$ and the integral becomes:
+
+  \begin{align*}
+  \int_0^1\frac{\arctanh\left(x \sqrt{2-x^2}\right)}{x}\;dx 
+    &=
+    \int_0^{\pi/2}\frac
+      {\arctanh\left(\sin\theta
+      \right)}
+    {\sqrt{1-\cos\theta}}\left(\frac{\sin\theta}{2\sqrt{1-\cos\theta}}\right)\;d\theta\\
+    &=
+    \frac{1}{2}\int_0^{\pi/2}\frac
+      {\sin\theta\arctanh\left(\sin\theta\right)}
+    {1-\cos\theta}\;d\theta\\
+    &=
+    \frac{1}{2}\int_0^{\pi/2}\frac
+      {\sin\theta\arctanh\left(\sin\theta\right)}
+    {1-\cos\theta}\left(\frac
+    {1+\cos\theta}{1+\cos\theta}\right)\;d\theta\\
+    &=
+    \frac{1}{2}\int_0^{\pi/2}\frac
+      {\sin\theta(1+\cos\theta)\arctanh\left(\sin\theta\right)}
+    {(\sin\theta)^2}\;d\theta\\
+    &=
+    \frac{1}{2}\int_0^{\pi/2}\frac
+      {(1+\cos\theta)\arctanh\left(\sin\theta\right)}
+    {\sin\theta}\;d\theta\\
+    &=
+    \frac{1}{2}\int_0^{\pi/2}\frac
+      {\arctanh\left(\sin\theta\right)}
+    {\sin\theta}\;d\theta
+    +\frac{1}{2}\int_0^{\pi/2}\frac
+      {\cos\theta\arctanh\left(\sin\theta\right)}
+    {\sin\theta}\;d\theta
+    \\
+  \end{align*}
+
+  For the first integral, let's introduce a parameter $a$ and then differentiate it:
+
+  \begin{align*}
+    I(a) &=
+    \int_0^{\pi/2}\frac
+      {\arctanh\left(a \sin\theta\right)}
+    {\sin\theta}\;d\theta\\
+    I'(a) &= \frac{d}{da}
+      \int_0^{\pi/2}\frac
+        {\arctanh\left(a \sin\theta\right)}
+      {\sin\theta}\;d\theta\\
+      &=
+      \int_0^{\pi/2}\frac{\partial}{\partial a}\frac
+        {\arctanh\left(a \sin\theta\right)}
+      {\sin\theta}\;d\theta\\
+      &=
+      \int_0^{\pi/2}\left(\frac{\sin\theta}{1-a^2\sin^2\theta}\right)
+      \frac{1}{\sin\theta}\;d\theta\\
+      &=
+      \int_0^{\pi/2}\frac{1}{1-a^2\sin^2\theta}\;d\theta
+  \end{align*}
+
+  With the substitution $u=\cot\theta$, followed by $s=\frac{u}{\sqrt{1-a^2}}$, we have:
+
+  \begin{align*}
+    I'(a) &= 
+      \int_{\infty}^0\frac{1}{1-a^2\frac{1}{1+u^2}}\left(\frac{1}{-1-u^2}\right)\;du\\
+      &= \int_{\infty}^{0}\frac{1}{a^2-1-u^2}\;du\\
+      &= \frac{1}{1-a^2}\int_0^\infty\frac{1}{1+\frac{u^2}{1-a^2}}\;du\\
+      &= \frac{1}{1-a^2}\int_0^\infty\frac{1}{1+s^2}\left(\sqrt{1-a^2}\right)\;ds\\
+      &= \frac{1}{\sqrt{1-a^2}}\left(\arctan s\right)_0^\infty\\
+      &= \frac{\pi}{2}\frac{1}{\sqrt{1-a^2}}\\
+    I(a) &= \frac{\pi}{2}\arcsin a + C
+  \end{align*}
+
+  By setting $a=0$, it's clear that $I(0)=0$, and therefore $C=0$. The first integral can be evaluated by setting $a=1$:
+
+  $$I(1)=\frac{\pi}{2}\arcsin 1=\frac{\pi^2}{4}$$
+
+  For the second integral we again introduce a parameter $a$:
+
+  \begin{align*}
+    J(a) &=
+    \int_0^{\pi/2}\frac
+      {\cos\theta\arctanh\left(a \sin\theta\right)}
+    {\sin\theta}\;d\theta\\
+    J'(a) &= 
+      \int_0^{\pi/2}\frac
+        {\cos\theta}{\sin\theta}\left(\frac{\sin\theta}{1-a^2\sin^2\theta}\right)\;d\theta\\
+        &=
+      \int_0^{\pi/2}\frac
+        {\cos\theta}{1-a^2\sin^2\theta}\;d\theta
+  \end{align*}
+
+  The substitution $u=a\sin\theta$ leads to:
+
+  \begin{align*}
+    J'(a) &=\frac{1}{a}\int_0^a\frac{1}{1-u^2}\;du\\
+    &=\frac{1}{a}\left(\arctanh u\right)_0^a \\
+    &=\frac{\arctanh a}{a}\\
+    J(a)&=\int\frac{\arctanh a}{a}\;da
+  \end{align*}
+
+  Replacing $\arctanh$ with its Taylor series we get:
+
+  \begin{align*}
+    J(a) &= \int\frac{1}{a}\sum_{n\ge 1}\frac{a^{2n-1}}{2n-1} \\
+    &=\sum_{n\ge 1}\int\frac{a^{2n-2}}{2n-1}\;da \\
+    &=\sum_{n\ge 1}\left(\frac{a^{2n-1}}{(2n-1)^2}+C\right) \\
+  \end{align*}
+
+  For $a=0$ we should again have $J(0)=0$, which implies $C=0$. The desired value for the second integral is $J(1)$:
+
+  \begin{align*}
+    J(1) &= \sum_{n\ge 1}\frac{1}{(2n-1)^2}\\
+    &= \sum_{n\ge 1}\frac{1}{n^2}-\sum_{n\ge 1}\frac{1}{(2n)^2}\\
+    &= \sum_{n\ge 1}\frac{1}{n^2}-\frac{1}{4}\sum_{n\ge 1}\frac{1}{n^2}\\
+    &= \left(1-\frac{1}{4}\right)\zeta(2)\\
+    &=\frac{3}{4}\left(\frac{\pi^2}{6}\right)\\
+    &=\frac{\pi^2}{8}
+  \end{align*}
+
+  The original integral now can be determined by our previous results:
+
+  \begin{align*}
+  \int_0^1\frac{\arctanh\left(x \sqrt{2-x^2}\right)}{x}\;dx 
+    &=\frac{1}{2}I(1)+\frac{1}{2}J(1)\\
+    &=\frac{1}{2}\left(\frac{\pi^2}{4}+\frac{\pi^2}{8}\right)\\
+    &=\frac{3\pi^2}{16}
+  \end{align*}
+  
+
+
+\end{letter}
+\end{document}

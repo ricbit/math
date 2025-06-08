@@ -41,6 +41,9 @@ Evaluate:
    
 $$\sum_{n=0}^\infty \text{csch} \left(2^n\right)$$
 * Proposed in [American Mathematical Monthly 2023, issue 6](https://maa.tandfonline.com/doi/full/10.1080/00029890.2023.2188815)
+* Solution in [American Mathematical Monthly 2025, issue 3](https://maa.tandfonline.com/doi/epdf/10.1080/00029890.2025.2439208)
+* [My Solution](https://github.com/ricbit/math/blob/main/pdf/amm12398.pdf)
+
 * Solution sent, deadline 2023-10-31
 
 ## CMJ 1132
