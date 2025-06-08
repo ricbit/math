@@ -75,7 +75,7 @@ $$\lim_{n\to\infty}\left(\sum_{k=1}^{n}\frac{2k}{n^2}\right)^n$$
 ## CMJ 1295
 Prove that:
 
-$$\int_0^\infty\left(\frac{\coth(\pi x)}{x}-\frac{1}{\pi x^2}\right)^2\,dx=\frac{4\zeta(3)}{\pi}$$
+$$\int_0^\infty\left(\frac{\coth(\pi x)}{x}-\frac{1}{\pi x^2}\right)^2 dx=\frac{4\zeta(3)}{\pi}$$
 
 where $\zeta(3)=\sum_{n=1}^\infty\frac{1}{n^3}$.
 
@@ -117,7 +117,7 @@ Evaluate the following sums in closed form.
 ## MM 2186
 Evaluate:
 
-$$\int_0^1\frac{\text{arctanh}\left(x \sqrt{2-x^2}\right)}{x}\,dx $$
+$$\int_0^1\frac{\text{arctanh}\left(x \sqrt{2-x^2}\right)}{x} dx $$
 * Proposed in [Mathematics Magazine 2024, issue 1](https://maa.tandfonline.com/doi/epdf/10.1080/0025570X.2024.2295209)
 * Solution in [Mathematics Magazine 2025, issue 1](https://maa.tandfonline.com/doi/epdf/10.1080/0025570X.2025.2432813)
 * [My Solution](https://github.com/ricbit/math/blob/main/pdf/mm2186.pdf)
